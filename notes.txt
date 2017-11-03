@@ -1,0 +1,35 @@
+# The commands from my hand-coded makefile are:
+    Compile:
+avr-gcc -g -mmcu=attiny861 -Os -Wall -Wstrict-prototypes -funsigned-bitfields -funsigned-char -fpack-struct -fshort-enums  -I. -c main.c -o obj/main.o
+    Link:
+avr-gcc -Wl,-Map,build/avr_demo.map -mmcu=attiny861 -o build/avr_demo.elf obj/main.o
+    file:
+avr_demo.elf: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, not stripped
+
+
+# The commands from my CMake-generated makefile are:
+[ 50%] Building C object CMakeFiles/avr_demo.elf.dir/main.c.obj
+/home/kmatthews/coding/toolchains/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc    -mmcu=attiny861 -Wall -Wstrict-prototypes -funsigned-bitfields -funsigned-char -fpack-struct -fshort-enums -o CMakeFiles/avr_demo.elf.dir/main.c.obj   -c /home/kmatthews/coding/c/avr_demo/main.c
+
+[100%] Linking C executable avr_demo.elf
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/avr_demo.elf.dir/link.txt --verbose=1
+/home/kmatthews/coding/toolchains/avr8-gnu-toolchain-linux_x86_64/bin/avr-gcc    -mmcu=attiny861 -Wl,-Map,avr_demo.map CMakeFiles/avr_demo.elf.dir/main.c.obj  -o avr_demo.elf
+[100%] Built target avr_demo.elf
+
+file:
+avr_demo.elf: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, not stripped
+
+If these are edited down and compared,
+compile:
+    avr-gcc -g -mmcu=attiny861 -Os -Wall -Wstrict-prototypes -funsigned-bitfields -funsigned-char -fpack-struct -fshort-enums  -I. -c main.c -o obj/main.o
+    avr-gcc    -mmcu=attiny861     -Wall -Wstrict-prototypes -funsigned-bitfields -funsigned-char -fpack-struct -fshort-enums      -c main.c -o CMakeFiles/avr_demo.elf.dir/main.c.obj
+
+    These differences are acceptable; I didn't specify debug, optimization, or an include directory.
+
+link:
+    avr-gcc -Wl,-Map,build/avr_demo.map -mmcu=attiny861 -o build/avr_demo.elf obj/main.o
+    avr-gcc -Wl,-Map,      avr_demo.map -mmcu=attiny861 -o       avr_demo.elf CMakeFiles/avr_demo.elf.dir/main.c.obj
+
+
+avr_demo.elf: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, not stripped
+avr_demo.elf: ELF 32-bit LSB executable, Atmel AVR 8-bit, version 1 (SYSV), statically linked, not stripped
