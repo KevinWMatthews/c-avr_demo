@@ -1,0 +1,2 @@
+Add a target for installation.
+    This will use avrdude.
