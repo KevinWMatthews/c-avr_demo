@@ -6,6 +6,7 @@ set (AVR_TOOLCHAIN_HOME /home/kmatthews/coding/toolchains/avr8-gnu-toolchain-lin
 set (CMAKE_SYSTEM_NAME Generic)
 set (CMAKE_C_COMPILER ${AVR_TOOLCHAIN_HOME}/bin/avr-gcc)
 set (CMAKE_CXX_COMPILER ${AVR_TOOLCHAIN_HOME}/bin/avr-g++)
+set (AVR_SIZE ${AVR_TOOLCHAIN_HOME}/bin/avr-size)
 
 set (CMAKE_FIND_ROOT_PATH ${AVR_TOOLCHAIN_HOME})
 set (CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
