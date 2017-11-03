@@ -1,3 +1,6 @@
 # Ignore build results
 build/
 obj/
+
+# Ignore CMake build directories
+build_cmake/
