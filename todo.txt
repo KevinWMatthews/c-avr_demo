@@ -1,2 +1,5 @@
 Add a target for installation.
     This will use avrdude.
+
+Think of a better way to split/distinguish buiding for the x86 and avr platforms.
+There are currently separate targets for each.

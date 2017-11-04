@@ -3,4 +3,5 @@ build/
 obj/
 
 # Ignore CMake build directories
-build_cmake/
+build_cmake_avr/
+build_cmake_x86/
